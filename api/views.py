@@ -27,7 +27,7 @@ class StudentRetrive(RetrieveModelMixin,GenericAPIView):
         return self.retrieve(request,*args,**kwargs)
     
 
-class StudentUpdate(UpdateModelMixin,GenericAPIView):
+class StudentUpdate1(UpdateModelMixin,GenericAPIView):
     queryset=StudentModel.objects.all()
     serializer_class=StudentSerializers
 
