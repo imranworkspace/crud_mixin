@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import StudentModel
 from .serializers import StudentSerializers
 from rest_framework.generics import GenericAPIView
-from rest_framework.mixins import ListModelMixin,CreateModelMixin,RetrieveModelMixin
+from rest_framework.mixins import ListModelMixin,CreateModelMixin,RetrieveModelMixin,UpdateModelMixin
 # Create your views here.
 
 class StudentList(ListModelMixin,GenericAPIView):
@@ -25,3 +25,11 @@ class StudentRetrive(RetrieveModelMixin,GenericAPIView):
 
     def get(self,request,*args,**kwargs):
         return self.retrieve(request,*args,**kwargs)
+    
+
+class StudentUpdate(UpdateModelMixin,GenericAPIView):
+    queryset=StudentModel.objects.all()
+    serializer_class=StudentSerializers
+
+    def put(self, request, *args, **kwargs):
+        return super().update(request, *args, **kwargs)
