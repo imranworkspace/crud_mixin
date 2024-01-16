@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from api.views import StudentList,StudentCreate,StudentRetrive,StudentUpdate1
+from api.views import StudentList,StudentCreate,StudentRetrive,StudentUpdate1,StudentDestroy
 
 
 urlpatterns = [
@@ -10,4 +10,5 @@ urlpatterns = [
     path('list/',StudentList.as_view()),
     path('retrive/<int:pk>/',StudentRetrive.as_view()),
     path('update/<int:pk>/',StudentUpdate1.as_view()),
+    path('delete/<int:pk>/',StudentDestroy.as_view()),
 ]
